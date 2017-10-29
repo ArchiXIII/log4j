@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="CONSOLE-DEBUG" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="WARN"/>
+        </filter>
+    </appender>
+
+    <appender name="FILE" class="org.apache.log4j.FileAppender">
+        <param name="file" value="projectLogsLowLevel.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="WARN"/>
+        </filter>
+    </appender>
+
+    <appender name="FILE2" class="org.apache.log4j.FileAppender">
+        <param name="file" value="projectLogsHiLevel.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR"/>
+        </filter>
+    </appender>
+
+    <category name="MyLoggerLog4j">
+        <level value="TRACE"/>
+        <appender-ref ref="CONSOLE-DEBUG"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE2"/>
+    </category>
+
+</log4j:configuration>
