@@ -12,7 +12,7 @@
         </filter>
     </appender>
 
-    <appender name="FILE" class="org.apache.log4j.FileAppender">
+    <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="projectLogsLowLevel.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
@@ -22,7 +22,7 @@
         </filter>
     </appender>
 
-    <appender name="FILE2" class="org.apache.log4j.FileAppender">
+    <appender name="FILE2" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="projectLogsHiLevel.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
